@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-TW">  <!開始標籤>
+<head>      <!後臺資料>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>體溫、心率感測裝置</title>       <!網站名稱>
+    <link rel="stylesheet" href="style.css">        <!rel為文件類型>
+</head>
+<body>      <!網頁內容>
+    <header>
+    <button class="menu">&#9776</button>
+    <h1>體溫、心率感測裝置</h1>     <!標題h的6個層級> 
+    <nav>
+    <ul> 
+
+        <li><a href="#">LINE BOT連結</a></li>       <!清單內容><!內文><!strong為粗體><!em為斜體>
+        <li><a href="#">數據連線</a></li>
+        <li><a href="https://www.canva.com/design/DAGZqvxzlcQ/Cl_9ELxwsUhYEN4KXDDsPQ/edit">專題報告</a></li>      
+        <li><a href="http://172.20.10.2/get_data.php">資料</a></li> 
+
+    </ul>
+    </nav>
+    </header>
+
+    <main>
+
+    <section class="org">
+    <h3>組別</h3>
+    <p><strong>電機工程系四年乙班<br>指導老師:王得貴<br>組員:朱宥丞、江芃逸、廖育任</strong> </p>
+    </section>
+
+    <section class="hard">
+    <h3><a href="#">硬體元件</a></h3>
+    </section>
+    
+    <section class="product">
+        <div>
+            <img src="images/06.jpg" alt="麵包板接線圖">
+            <h3>麵包板接線圖</h3>
+        </div>
+        <div>
+            <img src="images/08.jpg" alt="洞洞板加LCD加LCD">
+            <h3>洞洞板加LCD加LCD</h3>
+        </div>
+    </section>
+    
+    <section class="soft">
+    <h3>軟體</h3>    
+    </section>
+
+    <section class="exp">
+    <h3>專題成果影片</h3>    
+    </section>
+
+    <section class="mail">
+        <p>想了解請留下電子郵件，以便與您聯絡</p>
+        <form>
+            <input type="email" placeholder="請輸入您的Email" required>
+            <button type="submit">送出</button>
+        </form>
+    </section>
+
+    <section class="data">
+        <h3>最新感測數據</h3>
+        <table id="data-table">
+            <thead>
+                <tr>
+                    <th>心跳 (BPM)</th>
+                    <th>溫度 (°C)</th>
+                    <th>時間</th>
+                </tr>
+            </thead>
+            <tbody id="data-body">
+                <tr><td colspan="3">正在載入數據...</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+<script>
+        function fetchData() {
+            fetch('http://172.20.10.2/get_data.php') // 從伺服器獲取數據
+                .then(response => response.json()) // 將回應轉為 JSON
+                .then(data => { // 處理接收到的數據
+                    const tbody = document.getElementById('data-body');
+                    tbody.innerHTML = ''; // 清空表格
+
+                    if (data.length > 0) {
+                        data.forEach(row => {
+                            const tr = document.createElement('tr');
+                            tr.innerHTML = `
+                                <td>${row.BPM}</td>
+                                <td>${row.T}</td>
+                                <td>${row.timestamp}</td>
+                            `;
+                            tbody.appendChild(tr);
+                        });
+                    } else {
+                        tbody.innerHTML = '<tr><td colspan="3">無數據</td></tr>';
+                    }
+                })
+                .catch(error => { // 錯誤處理
+                    console.error('錯誤:', error);
+                    document.getElementById('data-body').innerHTML = '<tr><td colspan="3">無法載入數據</td></tr>';
+                });
+        }
+
+        fetchData();
+    </script>
+
+   
+    
+
+
+
+
+    </main>
+
+    
+</body>
+</html>     <!結束標籤>

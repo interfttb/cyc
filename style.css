@@ -1,0 +1,180 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+header {
+    background-color: rgba(35, 28, 26, 0.8) ; 
+    height: 80px;     /*頁首高度，像素*/  
+    width: 100%;        /*寬度100%與視窗同寬*/
+    position: fixed;
+}
+h1{
+    color: white;
+    position: absolute;
+    left: 120px;
+    top: 0;
+    line-height: 80px;
+
+
+}
+header ul{
+    position: absolute;
+    right: 5vw;
+    top: 0;
+    line-height: 80px;      /*使文字居中等頁首高度*/
+}
+header li{
+    display: inline;        /*使li項目變為同一排*/
+    margin-right: 4vw;      /*加大右邊距，vw為相對單位不售螢幕大小影響*/
+}
+
+header a{
+    color: white;
+    text-decoration: none;   /*將裝飾設為無*/
+}
+header a:hover {        /*只有數標在接觸時顯示底線*/
+    text-decoration: underline;
+}
+.org{
+    background-color: #e4ad9e;
+    color: white;
+    height: 95vh;       /*視窗高度的85%*/
+    background-image: url("images/03.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    display:flex;
+    flex-direction: column;        /*flex的方向為欄*/
+    align-items: center;        /*水平為至中*/
+    justify-content: center     /*垂直也設為至中*/;
+}
+.org h3{
+     font-size: 60px;        /*將文字放大*/
+     margin-top: 60px;
+}
+.org p{
+    color: antiquewhite;
+    font-size: 30px;
+    margin: 25px 0;     /*加大間距*/
+}
+.hard h3{
+    background-color: #485652;
+    color:white;
+    height: 250px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    text-decoration: none;
+}
+.hard h3:hover{
+    text-decoration: underline;
+}
+.product{
+    display:flex;
+    background-color: antiquewhite;
+}
+.product div{
+    width: 300px;
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;
+    padding: 100px 180px 80px ;
+
+}
+.product img{
+    width: 150%;
+    border-radius: 10px;
+}
+.product h3{
+    font-size: 30px;
+    margin: 20px 0;
+}
+.soft h3{
+    background-color: #484856;
+    color:white;
+    height: 250px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+.exp h3{
+    background-color: #564853;
+    color:white;
+    height: 250px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+.mail{
+    background-color: black;
+    color: white;
+    padding: 60px 0;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mail p{
+    margin-bottom: 20px;
+}
+
+.mail input, .mail button{
+    background-color: transparent;
+    color: white;
+    border: 1px solid #949d9a;
+    padding: 10px;
+    border-radius: 5px;
+}
+.mail input{
+    width: 200px;
+    margin-right: 15px;
+}
+.mail button{
+    width: 80px;
+    cursor: pointer;
+}
+input::placeholder{
+    color: #DDDDDD;
+}
+.menu{
+    display: none;
+
+     
+}
+/*響應式設計語法影有空複習!!!*/
+@media screen and (max-width:768px) {
+    header ul{
+        display: none;
+    }
+    header h1{
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .org h3{
+        font-size: 40px;
+    }
+    .menu{
+        display: block;
+        background-color: transparent;
+        color: white;
+        font-size: 35px;
+        position: absolute;
+        top: 15px;
+        left: 20px;
+        border: none;
+        cursor: pointer;
+    }
+    .product{
+        flex-direction: column;
+        padding: 60px 0;
+    }
+    .product div{
+        margin-bottom: 30px;
+    }
+    
+
+}
