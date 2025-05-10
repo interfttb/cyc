@@ -2,7 +2,7 @@
     padding: 0;
     margin: 0;
 }
-header {
+header {        /*橫幅*/
     background-color: rgba(35, 28, 26, 0.8) ; 
     height: 80px;     /*頁首高度，像素*/  
     width: 100%;        /*寬度100%與視窗同寬*/
@@ -17,7 +17,7 @@ h1{
 
 
 }
-header ul{
+header ul{       /*橫幅*/
     position: absolute;
     right: 5vw;
     top: 0;
@@ -32,7 +32,7 @@ header a{
     color: white;
     text-decoration: none;   /*將裝飾設為無*/
 }
-header a:hover {        /*只有數標在接觸時顯示底線*/
+header a:hover {        /*只有屬標在接觸時顯示底線*/
     text-decoration: underline;
 }
 .org{
@@ -58,7 +58,7 @@ header a:hover {        /*只有數標在接觸時顯示底線*/
     font-size: 30px;
     margin: 25px 0;     /*加大間距*/
 }
-.hard h3{
+.soft h3{
     background-color: #485652;
     color:white;
     height: 250px;
@@ -68,30 +68,11 @@ header a:hover {        /*只有數標在接觸時顯示底線*/
     font-size: 30px;
     text-decoration: none;
 }
-.hard h3:hover{
+.soft h3:hover{
     text-decoration: underline;
 }
-.product{
-    display:flex;
-    background-color: antiquewhite;
-}
-.product div{
-    width: 300px;
-    text-align: center;
-    justify-content: space-around;
-    align-items: center;
-    padding: 100px 180px 80px ;
 
-}
-.product img{
-    width: 150%;
-    border-radius: 10px;
-}
-.product h3{
-    font-size: 30px;
-    margin: 20px 0;
-}
-.soft h3{
+.hard h3{
     background-color: #484856;
     color:white;
     height: 250px;
@@ -100,7 +81,10 @@ header a:hover {        /*只有數標在接觸時顯示底線*/
     align-items: center;
     font-size: 30px;
 }
-.exp h3{
+.hard h3:hover{
+    text-decoration: underline;
+}
+.infor h3{
     background-color: #564853;
     color:white;
     height: 250px;
@@ -108,6 +92,21 @@ header a:hover {        /*只有數標在接觸時顯示底線*/
     justify-content: center;
     align-items: center;
     font-size: 30px;
+}
+.infor h3:hover{
+    text-decoration: underline;
+}
+.data h3{
+    background-color: #564848;
+    color:white;
+    height: 250px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+.data h3:hover{
+    text-decoration: underline;
 }
 .mail{
     background-color: black;
