@@ -3,102 +3,205 @@
 <head>      <!後臺資料>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>健康系統偵測裝置</title>       <!網站名稱>
-    <link rel="stylesheet" href="style.css">        <!rel為文件類型>
+    <title>健康系統偵測裝置</title>     <!網站名稱>
+    <link rel="stylesheet" href="style.css">     <!rel為文件類型>
 </head>
-<body>      <!網頁內容>
+<body>     <!網頁內容>
     <header>
-    <button class="menu">&#9776</button>
-    <h1>健康系統偵測裝置</h1>     <!標題h的6個層級> 
-    <nav>
-    <ul> 
-        
-        <li><a href="">書面報告</a></li>  
-        <li><a href="documents/test.pdf" target="_blank">專題海報</a></li>   <!清單內容><!內文><!strong為粗體><!em為斜體> 
-        <li><a href="video/testv.mp4" target="_blank">影片</a></li> 
-        <li><a href="http://172.20.10.2/phpmyadmin/">資料中心</a></li> 
-
-    </ul>
-    </nav>
+        <button class="menu">☰</button>
+        <h1>健康系統偵測裝置</h1>     <!標題h的6個層級>
+        <nav>
+            <ul>
+                <li><a href="">書面報告</a></li>
+                <li><a href="documents/海報.pdf" target="_blank">專題海報</a></li>       <!清單內容><!內文><!strong為粗體><!em為斜體>
+                <li><a href="video/testv.mp4" target="_blank">影片</a></li>
+                <li><a href="http://172.20.10.2/phpmyadmin/">資料中心</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
+        <section class="org">
+            <h3>第一組02</h3>
+            <p><strong>電機工程系四年乙班<br>指導老師:王得貴<br>組員:朱宥丞、江芃逸、廖育任</strong></p>
+        </section>
 
-    <section class="org">
-    <h3>第一組02</h3>
+        <section class="soft">
+            <h3 onclick="toggleImages('soft-gallery')">軟體</h3>
+            <div class="gallery" id="soft-gallery">
+                <div class="image-container">
+                    <img src="images/01.png" alt="圖片1" class="gallery-img">
+                    <p class="caption">紅外線溫度感測器心率感測器程式</p>
+                </div>
+                <div class="image-container">
+                    <img src="images/02.png" alt="圖片2" class="gallery-img">
+                    <p class="caption">紅外線溫度感測器心率感測器程式</p>
+                </div>
+                <div class="image-container">
+                    <img src="images/03.png" alt="圖片3" class="gallery-img">
+                    <p class="caption">紅外線溫度感測器心率感測器程式</p>
+                </div>
+                <div class="image-container">
+                    <img src="images/2.jpg" alt="圖片" class="gallery-img">
+                    <p class="caption">樹梅派程式</p>
+                </div>
+                <div class="image-container">
+                    <img src="images/3.jpg" alt="圖片" class="gallery-img">
+                    <p class="caption">樹梅派程式</p>
+                </div>
+                <div class="image-container">
+                    <img src="images/4.jpg" alt="圖片" class="gallery-img">
+                    <p class="caption">樹梅派程式</p>
+                </div>
+                <div class="image-container">
+                    <img src="images/12.png" alt="圖片2" class="gallery-img">
+                    <p class="caption">Html</p>
+                </div>
+                <div class="image-container">
+                    <img src="images/13.png" alt="圖片3" class="gallery-img">
+                    <p class="caption">Html</p>
+                </div>
+                <div class="image-container">
+                    <img src="images/14.png" alt="圖片" class="gallery-img">
+                    <p class="caption">Html</p>
+                </div>
+                <div class="image-container">
+                    <img src="images/16.png" alt="圖片" class="gallery-img">
+                    <p class="caption">Html</p>
+                </div>
+                <div class="image-container">
+                    <img src="images/17.png" alt="圖片" class="gallery-img">
+                    <p class="caption">Html</p>
+                </div>
+                <div class="image-container">
+                    <img src="images/18.png" alt="圖片2" class="gallery-img">
+                    <p class="caption">Css</p>
+                </div>
+                <div class="image-container">
+                    <img src="images/19.png" alt="圖片3" class="gallery-img">
+                    <p class="caption">Css</p>
+                </div>
+                <div class="image-container">
+                    <img src="images/20.png" alt="圖片" class="gallery-img">
+                    <p class="caption">Css</p>
+                </div>
+                <div class="image-container">
+                    <img src="images/21.png" alt="圖片" class="gallery-img">
+                    <p class="caption">Css</p>
+                </div>
+                <div class="image-container">
+                    <img src="images/22.png" alt="圖片" class="gallery-img">
+                    <p class="caption">Css</p>
+                </div>
+                <div class="image-container">
+                    <img src="images/23.png" alt="圖片2" class="gallery-img">
+                    <p class="caption">Css</p>
+                </div>
+                <div class="image-container">
+                    <img src="images/24.png" alt="圖片3" class="gallery-img">
+                    <p class="caption">Css</p>
+                </div>
 
-    <p><strong>電機工程系四年乙班<br>指導老師:王得貴<br>組員:朱宥丞、江芃逸、廖育任</strong> </p>
-    </section>
-
-    <section class="soft">
-    <h3>軟體</h3>
-    </section>
+            </div>
+        </section>
+        
     
-    <section class="hard">
-    <h3>硬體</h3>    
-    </section>
+        <section class="hard">
+            <h3 onclick="toggleImages('hard-gallery')">硬體</h3>
+            <div class="gallery" id="hard-gallery">
+                <div class="image-container">
+                    <img src="images/05.png" alt="圖片5" class="gallery-img">
+                    <p class="caption">Raspberry Pi4</p>
+                </div>
+                <div class="image-container">
+                    <img src="images/06.png" alt="圖片6" class="gallery-img">
+                    <p class="caption">Arduino</p>
+                </div>
+                <div class="image-container">
+                    <img src="images/07.png" alt="圖片7" class="gallery-img">
+                    <p class="caption">藍芽模組</p>
+                </div>
+                <div class="image-container">
+                    <img src="images/08.png" alt="圖片10" class="gallery-img">
+                    <p class="caption">紅外線溫度感測器</p>
+                </div>
+                <div class="image-container">
+                    <img src="images/09.png" alt="圖片11" class="gallery-img">
+                    <p class="caption">心率感測器</p>
+                </div>
+                <div class="image-container">
+                    <img src="images/15.png" alt="圖片12" class="gallery-img">
+                    <p class="caption">Ic2lcd </p>
+                </div>
+            </div>
+        </section>
+        
+        <script>
+            function toggleImages(galleryId) {
+                const gallery = document.getElementById(galleryId);
+                gallery.classList.toggle('show');
+            }
+        </script>
 
-    <section class="infor">
-    <h3>參考資料</h3>    
-    </section>
+        <section class="infor">
+        <h3><a href="documents/元件規格表參考資料.pdf">參考資料</a></h3> 
+           
+        </section>
+        <section class="data">
+            <h3>最新感測數據</h3>
+            <table id="data-table">
+                <thead>
+                    <tr>
+                        <th>心跳 (BPM)</th>
+                        <th>溫度 (°C)</th>
+                        <th>時間</th>
+                    </tr>
+                </thead>
+                <tbody id="data-body">
+                    <tr><td colspan="3">正在載入數據...</td></tr>
+                </tbody>
+            </table>
+        </section>
 
+        <script>
+                function fetchData() {
+                    fetch('http://172.20.10.2/get_data.php') // 從伺服器獲取數據
+                        .then(response => response.json()) // 將回應轉為 JSON
+                        .then(data => { // 處理接收到的數據
+                            const tbody = document.getElementById('data-body');
+                            tbody.innerHTML = ''; // 清空表格
 
-
-    <section class="data">
-        <h3>最新感測數據</h3>
-        <table id="data-table">
-            <thead>
-                <tr>
-                    <th>心跳 (BPM)</th>
-                    <th>溫度 (°C)</th>
-                    <th>時間</th>
-                </tr>
-            </thead>
-            <tbody id="data-body">
-                <tr><td colspan="3">正在載入數據...</td></tr>
-            </tbody>
-        </table>
-    </section>
-
-<script>
-        function fetchData() {
-            fetch('http://172.20.10.2/get_data.php') // 從伺服器獲取數據
-                .then(response => response.json()) // 將回應轉為 JSON
-                .then(data => { // 處理接收到的數據
-                    const tbody = document.getElementById('data-body');
-                    tbody.innerHTML = ''; // 清空表格
-
-                    if (data.length > 0) {
-                        data.forEach(row => {
-                            const tr = document.createElement('tr');
-                            tr.innerHTML = `
-                                <td>${row.BPM}</td>
-                                <td>${row.T}</td>
-                                <td>${row.timestamp}</td>
-                            `;
-                            tbody.appendChild(tr);
+                            if (data.length > 0) {
+                                data.forEach(row => {
+                                    const tr = document.createElement('tr');
+                                    tr.innerHTML = `
+                                        <td>${row.BPM}</td>
+                                        <td>${row.T}</td>
+                                        <td>${row.timestamp}</td>
+                                    `;
+                                    tbody.appendChild(tr);
+                                });
+                            } else {
+                                tbody.innerHTML = '<tr><td colspan="3">無數據</td></tr>';
+                            }
+                        })
+                        .catch(error => { // 錯誤處理
+                            console.error('錯誤:', error);
+                            document.getElementById('data-body').innerHTML = '<tr><td colspan="3">無法載入數據</td></tr>';
                         });
-                    } else {
-                        tbody.innerHTML = '<tr><td colspan="3">無數據</td></tr>';
-                    }
-                })
-                .catch(error => { // 錯誤處理
-                    console.error('錯誤:', error);
-                    document.getElementById('data-body').innerHTML = '<tr><td colspan="3">無法載入數據</td></tr>';
-                });
-        }
+                }
 
-        fetchData();
-    </script>
+                fetchData();
+            </script>
 
-<section class="mail">
+        <section class="mail">
 
-    <p>想了解請留下電子郵件，以便與您聯絡</p>
-    <form>
-        <input type="email" placeholder="請輸入您的Email" required>
-        <button type="submit">送出</button>
-    </form>
-</section>
+            <p>想了解請留下電子郵件，以便與您聯絡</p>
+            <form>
+                <input type="email" placeholder="請輸入您的Email" required>
+                <button type="submit">送出</button>
+            </form>
+        </section>
    
     
 

@@ -7,6 +7,7 @@ header {        /*橫幅*/
     height: 80px;     /*頁首高度，像素*/  
     width: 100%;        /*寬度100%與視窗同寬*/
     position: fixed;
+    z-index: 1000;
 }
 h1{
     color: white;
@@ -14,8 +15,6 @@ h1{
     left: 120px;
     top: 0;
     line-height: 80px;
-
-
 }
 header ul{       /*橫幅*/
     position: absolute;
@@ -39,7 +38,7 @@ header a:hover {        /*只有屬標在接觸時顯示底線*/
     background-color: #e4ad9e;
     color: white;
     height: 95vh;       /*視窗高度的85%*/
-    background-image: url("images/03.jpg");
+    background-image: url("images/1.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -71,7 +70,66 @@ header a:hover {        /*只有屬標在接觸時顯示底線*/
 .soft h3:hover{
     text-decoration: underline;
 }
+/* 圖庫樣式 */
+.gallery {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 10px;
+    transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+}
 
+.gallery.show {
+    max-height: 5000px; /* 增加高度以容納圖片 */
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.image-container {
+    width: 32%; /* 強制每列三張，考慮間距略小於33.33% */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.gallery-img {
+    width: 100%;
+    height: auto;
+    max-height: 300px; /* 限制圖片高度 */
+    object-fit: contain; /* 確保圖片完整顯示 */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.gallery.show .gallery-img {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gallery-img:hover {
+    transform: scale(1.05);
+}
+
+.caption {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.gallery.show .caption {
+    opacity: 1;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
 .hard h3{
     background-color: #484856;
     color:white;
@@ -84,6 +142,7 @@ header a:hover {        /*只有屬標在接觸時顯示底線*/
 .hard h3:hover{
     text-decoration: underline;
 }
+
 .infor h3{
     background-color: #564853;
     color:white;
