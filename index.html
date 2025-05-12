@@ -146,7 +146,6 @@
         <section class="infor">
         <h3><a href="documents/元件規格表參考資料.pdf">參考資料</a></h3> 
            
-        </section>
         <section class="data">
             <h3>最新感測數據</h3>
             <table id="data-table">
@@ -163,37 +162,75 @@
             </table>
         </section>
 
+        <div id="alert-box"></div>
+
         <script>
-                function fetchData() {
-                    fetch('http://172.20.10.2/get_data.php') // 從伺服器獲取數據
-                        .then(response => response.json()) // 將回應轉為 JSON
-                        .then(data => { // 處理接收到的數據
-                            const tbody = document.getElementById('data-body');
-                            tbody.innerHTML = ''; // 清空表格
+            const NORMAL_BPM_MIN = 60;
+            const NORMAL_BPM_MAX = 100;
+            const NORMAL_TEMP_MIN = 36.0;
+            const NORMAL_TEMP_MAX = 37.5;
+            let lastAlertData = null;
 
-                            if (data.length > 0) {
-                                data.forEach(row => {
-                                    const tr = document.createElement('tr');
-                                    tr.innerHTML = `
-                                        <td>${row.BPM}</td>
-                                        <td>${row.T}</td>
-                                        <td>${row.timestamp}</td>
-                                    `;
-                                    tbody.appendChild(tr);
-                                });
-                            } else {
-                                tbody.innerHTML = '<tr><td colspan="3">無數據</td></tr>';
-                            }
-                        })
-                        .catch(error => { // 錯誤處理
-                            console.error('錯誤:', error);
-                            document.getElementById('data-body').innerHTML = '<tr><td colspan="3">無法載入數據</td></tr>';
-                        });
-                }
+            function showAlert(message) {
+                const alertBox = document.getElementById('alert-box');
+                alertBox.textContent = message;
+                alertBox.classList.add('show');
+                setTimeout(() => {
+                    alertBox.classList.remove('show');
+                }, 5000); // 警示顯示5秒後消失
+            }
 
-                fetchData();
-            </script>
+            function fetchData() {
+                fetch('http://172.20.10.2/get_data.php') // 從伺服器獲取數據
+                    .then(response => response.json()) // 將回應轉為 JSON
+                    .then(data => { // 處理接收到的數據
+                        const tbody = document.getElementById('data-body');
+                        tbody.innerHTML = ''; // 清空表格
 
+                        if (data.length > 0) {
+                            data.forEach(row => {
+                                const tr = document.createElement('tr');
+                                tr.innerHTML = `
+                                    <td>${row.BPM}</td>
+                                    <td>${row.T}</td>
+                                    <td>${row.timestamp}</td>
+                                `;
+                                tbody.appendChild(tr);
+
+                                // 檢查數據是否異常
+                                const bpm = parseFloat(row.BPM);
+                                const temp = parseFloat(row.T);
+                                let alertMessage = '';
+
+                                if (bpm < NORMAL_BPM_MIN || bpm > NORMAL_BPM_MAX) {
+                                    alertMessage += `心跳異常: ${bpm} BPM (正常範圍: ${NORMAL_BPM_MIN}-${NORMAL_BPM_MAX}) `;
+                                }
+                                if (temp < NORMAL_TEMP_MIN || temp > NORMAL_TEMP_MAX) {
+                                    alertMessage += `溫度異常: ${temp}°C (正常範圍: ${NORMAL_TEMP_MIN}-${NORMAL_TEMP_MAX})`;
+                                }
+
+                                // 僅對新數據或不同數據觸發警示
+                                const currentData = `${bpm}-${temp}-${row.timestamp}`;
+                                if (alertMessage && currentData !== lastAlertData) {
+                                    showAlert(alertMessage);
+                                    lastAlertData = currentData; // 更新最後警示的數據
+                                }
+                            });
+                        } else {
+                            tbody.innerHTML = '<tr><td colspan="3">無數據</td></tr>';
+                        }
+                    })
+                    .catch(error => { // 錯誤處理
+                        console.error('錯誤:', error);
+                        document.getElementById('data-body').innerHTML = '<tr><td colspan="3">無法載入數據</td></tr>';
+                    });
+            }
+
+            // 初次載入數據
+            fetchData();
+            // 每10秒重新載入數據
+            setInterval(fetchData, 10000);
+        </script>
         <section class="mail">
 
             <p>想了解請留下電子郵件，以便與您聯絡</p>
